@@ -110,7 +110,7 @@ navLinks.forEach(link => {
 
 /* ------------------ Typed Effect (Hero) ------------------ */
 const typedText = document.getElementById('typed-text');
-const words = ["Former ATM Field Service Engineer","Former IT Support Intern"];
+const words = ["NOC Engineer"];
 let wordIndex = 0, letterIndex = 0, isDeleting = false;
 
 function type(){
