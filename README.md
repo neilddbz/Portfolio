@@ -7,4 +7,5 @@
 - ✅ Experience – Work history from internships to professional roles
 - ✅ Certificates – Verified certificates
 - ✅ Contact – Simple form to reach out to me
-<img width="1919" height="858" alt="image" src="https://github.com/user-attachments/assets/af645425-9eb4-45bf-8af1-064b0460f110" />
+<img width="1886" height="861" alt="image" src="https://github.com/user-attachments/assets/5649248b-f897-4183-a2d8-392086b1858f" />
+
