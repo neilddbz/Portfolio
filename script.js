@@ -110,7 +110,7 @@ navLinks.forEach(link => {
 
 /* ------------------ Typed Effect (Hero) ------------------ */
 const typedText = document.getElementById('typed-text');
-const words = ["NOC Engineer"];
+const words = ["NOC / Network Engineer"];
 let wordIndex = 0, letterIndex = 0, isDeleting = false;
 
 function type(){
@@ -223,3 +223,28 @@ function typeFooterLoop() {
     }
     setTimeout(typeFooterLoop, isDeletingFooter ? 100 : 150);
 }
+
+// ABOUT SECTION CAROUSEL WITH PREVIEW
+const track = document.querySelector('.carousel-track');
+const items = document.querySelectorAll('.carousel-item');
+const prev = document.querySelector('.carousel .prev');
+const next = document.querySelector('.carousel .next');
+
+let index = 0;
+
+function updateCarousel() {
+  items.forEach(i => i.classList.remove('active'));
+  items[index].classList.add('active');
+
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+prev.addEventListener('click', () => {
+  index = (index - 1 + items.length) % items.length;
+  updateCarousel();
+});
+
+next.addEventListener('click', () => {
+  index = (index + 1) % items.length;
+  updateCarousel();
+});

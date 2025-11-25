@@ -82,7 +82,7 @@ header {
   min-height: 100vh;
   width: 100%;
   background: url('images/pic1.jpg') no-repeat center center;
-  background-size: cover; /* Default for large screens */
+  background-size: cover;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -178,14 +178,80 @@ section.active {
   color: #fff;
 }
 
+/* --------------------- ABOUT IMAGE (FULL SIZE) --------------------- */
+.about-img {
+  width: 100%;
+  max-width: 560px;  /* mas malaki container */
+  margin: 0 auto;
+}
+
 .about-img img {
   width: 100%;
+  max-width: 500px;  /* mas malaki image */
+  height: auto;
   border-radius: 20px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
 }
 
-/* --------------------- EDUCATION / SKILLS / EXPERIENCE / CERTIFICATES --------------------- */
+.about-img img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------------- IMAGE CAROUSEL ---------------- */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 20px;
+  transform: scale(0.85);
+  opacity: 0.6;
+  transition: 0.35s ease;
+}
+
+.carousel-item.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.carousel button.prev,
+.carousel button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  background: rgba(255, 165, 0, 0.7);
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.carousel button.prev:hover,
+.carousel button.next:hover {
+  background: #ffa500;
+}
+
+.carousel button.prev { left: 10px; }
+.carousel button.next { right: 10px; }
+
+/* --------------------- EDUCATION / SKILLS / EXPERIENCE --------------------- */
 .education-grid, .skills-grid, .experience-grid, .certificates-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -374,13 +440,11 @@ footer #footer-name {
 }
 
 /* --------------------- RESPONSIVE --------------------- */
-
-/* For tablets and smaller screens */
 @media (max-width: 900px) {
   .hamburger { display: block; }
 
   .nav-links {
-    display: none; /* hidden by default */
+    display: none;
     flex-direction: column;
     width: 100%;
     padding: 10px 0;
@@ -390,9 +454,7 @@ footer #footer-name {
     left: 0;
   }
 
-  .nav-links.active {
-    display: flex;
-  }
+  .nav-links.active { display: flex; }
 
   .nav-links li {
     text-align: center;
@@ -407,76 +469,22 @@ footer #footer-name {
 
   .about { grid-template-columns: 1fr; text-align: center; }
 
-  .hero {
-    background-size: contain; /* Show full image */
-    background-position: center center;
-    padding-left: 0;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .hero-content {
-    padding: 0 15px;
-  }
+  .hero { justify-content: center; text-align: center; }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    background-size: contain; /* Show full image */
-    background-position: center center;
-    padding: 0 15px;
-    text-align: center;
-  }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content h3 { font-size: 1rem; }
 
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content h3 {
-    font-size: 1rem;
-  }
-
-  .about-img {
-    order: -1;
-    margin-bottom: 20px;
-  }
-
-  .about-img img {
-    max-width: 220px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .about-text {
-    text-align: center;
-  }
+  .about-img img { max-width: 360px; }
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding: 0 10px;
-    text-align: center;
-    background-size: contain; /* Show full image */
-  }
-
-  .hero-content h1 {
-    font-size: 1.6rem;
-  }
-
-  .hero-content h3 {
-    font-size: 0.9rem;
-  }
-
-  .btn {
-    padding: 12px 25px;
-    font-size: 0.9rem;
-  }
-
-  footer {
-    font-size: 0.8rem;
-  }
+  .hero-content h1 { font-size: 1.6rem; }
+  .hero-content h3 { font-size: 0.9rem; }
+  .btn { padding: 12px 25px; font-size: 0.9rem; }
+  footer { font-size: 0.8rem; }
+  .about-img img { max-width: 280px; }
 }
 
 /* --------------------- ANIMATIONS --------------------- */
